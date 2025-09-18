@@ -1,0 +1,349 @@
+.narrative-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #2F1B14 0%, #8B4513 50%, #D2691E 100%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.narrative-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(47, 27, 20, 0.95);
+  border-bottom: 2px solid #8B4513;
+  padding: 15px 25px;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.narrative-header h1 {
+  color: #FFD700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.narrative-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.story-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.throne-room {
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, #2F1B14 0%, #8B4513 50%, #D2691E 100%);
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dialogue-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.speaker-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: rgba(47, 27, 20, 0.8);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 15px 20px;
+  backdrop-filter: blur(10px);
+}
+
+.speaker-portrait {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.speaker-details h3 {
+  color: #FFD700;
+  font-size: 1.3rem;
+  margin: 0 0 5px 0;
+}
+
+.story-progress {
+  color: #C0C0C0;
+  font-size: 0.9rem;
+}
+
+.dialogue-box {
+  background: rgba(47, 27, 20, 0.95);
+  border: 2px solid #8B4513;
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.dialogue-text {
+  color: #F5F5DC;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.typing-cursor {
+  color: #FFD700;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.choices-container {
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  animation: slideInUp 0.5s ease-out;
+}
+
+.choices-container h4 {
+  color: #FFD700;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid #8B4513;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.choice-item:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: #FFD700;
+  transform: translateX(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.choice-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.choice-text {
+  color: #F5F5DC;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.choice-description {
+  color: #C0C0C0;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.choice-number {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFD700;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.narrative-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(47, 27, 20, 0.95);
+  border-top: 2px solid #8B4513;
+  padding: 15px 25px;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.story-stats {
+  display: flex;
+  gap: 20px;
+  color: #C0C0C0;
+  font-size: 0.9rem;
+}
+
+.story-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .narrative-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .narrative-header h1 {
+    font-size: 1.2rem;
+  }
+  
+  .dialogue-container {
+    padding: 15px;
+  }
+  
+  .speaker-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .speaker-portrait {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .dialogue-text {
+    font-size: 1.1rem;
+    min-height: 50px;
+  }
+  
+  .choice-item {
+    padding: 12px 15px;
+  }
+  
+  .choice-text {
+    font-size: 0.95rem;
+  }
+  
+  .choice-description {
+    font-size: 0.8rem;
+  }
+  
+  .narrative-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .story-stats {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .choice-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .choice-number {
+    order: -1;
+  }
+}

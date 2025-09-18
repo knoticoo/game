@@ -1,0 +1,220 @@
+/* App-specific styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #2F1B14 0%, #8B4513 50%, #D2691E 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(210, 105, 30, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Screen transitions */
+.screen-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.screen-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.screen-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.screen-exit-active {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Game UI Layout */
+.game-layout {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "sidebar main sidebar-right"
+    "footer footer footer";
+  grid-template-columns: 250px 1fr 250px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: 20px;
+  padding: 20px;
+}
+
+.game-header {
+  grid-area: header;
+  background: rgba(47, 27, 20, 0.95);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.game-sidebar {
+  grid-area: sidebar;
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.game-main {
+  grid-area: main;
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+
+.game-sidebar-right {
+  grid-area: sidebar-right;
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.game-footer {
+  grid-area: footer;
+  background: rgba(47, 27, 20, 0.95);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .game-layout {
+    grid-template-areas: 
+      "header"
+      "main"
+      "sidebar"
+      "sidebar-right"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto auto;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .game-sidebar,
+  .game-sidebar-right {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-layout {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .game-header,
+  .game-main,
+  .game-footer {
+    padding: 15px;
+  }
+}
+
+/* Full screen mode for narrative */
+.narrative-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background: linear-gradient(135deg, #2F1B14 0%, #8B4513 50%, #D2691E 100%);
+}
+
+/* Combat screen layout */
+.combat-layout {
+  display: grid;
+  grid-template-areas: 
+    "battlefield battlefield"
+    "player-units enemy-units"
+    "actions log";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto auto;
+  gap: 20px;
+  height: 100vh;
+  padding: 20px;
+}
+
+.battlefield {
+  grid-area: battlefield;
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.player-units {
+  grid-area: player-units;
+  background: rgba(0, 100, 0, 0.2);
+  border: 2px solid #00AA00;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.enemy-units {
+  grid-area: enemy-units;
+  background: rgba(100, 0, 0, 0.2);
+  border: 2px solid #AA0000;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.combat-actions {
+  grid-area: actions;
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.combat-log {
+  grid-area: log;
+  background: rgba(47, 27, 20, 0.9);
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  padding: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+}
