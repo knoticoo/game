@@ -1,0 +1,186 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #2F1B14 0%, #8B4513 50%, #D2691E 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.loading-icon {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.crown-icon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  color: #FFD700;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.sword-icon {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  color: #C0C0C0;
+  animation: rotate 4s linear infinite;
+}
+
+.gem-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  color: #FF69B4;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #FFD700;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.loading-subtitle {
+  font-size: 1.2rem;
+  color: #F5F5DC;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 215, 0, 0.3);
+  border-top: 4px solid #FFD700;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.loading-text {
+  color: #C0C0C0;
+  font-size: 1rem;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px #FFD700);
+  }
+  to {
+    filter: drop-shadow(0 0 20px #FFD700) drop-shadow(0 0 30px #FFD700);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  }
+  to {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px #FFD700;
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .loading-title {
+    font-size: 2.5rem;
+  }
+  
+  .loading-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .crown-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sword-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .gem-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
