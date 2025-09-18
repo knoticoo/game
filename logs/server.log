@@ -1,0 +1,44 @@
+
+> kings-choice-game@1.0.0 start
+> PORT=6000 react-scripts start
+
+(node:2743) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:2743) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Failed to compile.
+
+Module not found: Error: Can't resolve '../ui/QuickActions' in '/workspace/src/components/game'
+WARNING in [eslint] 
+src/App.js
+  Line 17:11:  'currentScreen' is assigned a value but never used  no-unused-vars
+  Line 17:26:  'gameState' is assigned a value but never used      no-unused-vars
+
+src/components/game/CharacterScreen.js
+  Line 3:24:   'updateRelationship' is defined but never used          no-unused-vars
+  Line 12:10:  'selectedCompanion' is assigned a value but never used  no-unused-vars
+
+src/components/game/CombatScreen.js
+  Line 4:54:  'RotateCcw' is defined but never used               no-unused-vars
+  Line 12:5:  'currentBattle' is assigned a value but never used  no-unused-vars
+
+src/components/game/GameScreen.js
+  Line 6:8:  'QuickActions' is defined but never used  no-unused-vars
+
+src/components/game/ResourceScreen.js
+  Line 11:38:  'prestige' is assigned a value but never used  no-unused-vars
+
+src/components/game/SettingsScreen.js
+  Line 4:30:  'VolumeX' is defined but never used  no-unused-vars
+
+src/components/narrative/NarrativeScreen.js
+  Line 3:34:  'advanceStory' is defined but never used             no-unused-vars
+  Line 4:43:  'VolumeX' is defined but never used                  no-unused-vars
+  Line 13:5:  'currentChoices' is assigned a value but never used  no-unused-vars
+  Line 16:5:  'storyData' is assigned a value but never used       no-unused-vars
+
+ERROR in ./src/components/game/GameScreen.js 10:0-46
+Module not found: Error: Can't resolve '../ui/QuickActions' in '/workspace/src/components/game'
+
+webpack compiled with 1 error and 1 warning
